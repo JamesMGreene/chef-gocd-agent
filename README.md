@@ -1,6 +1,6 @@
-# [`gocd_agent` Chef Cookbook](https://github.com/JamesMGreene/chef-gocd-agent) [![GitHub Latest Release](https://badge.fury.io/gh/JamesMGreene%2Fchef-gocd-agent.png)](https://github.com/JamesMGreene/chef-gocd-agent) [![Build Status](https://secure.travis-ci.org/JamesMGreene/chef-gocd-agent.png?branch=master)](https://travis-ci.org/JamesMGreene/chef-gocd-agent) [![Chef Cookbook](http://img.shields.io/cookbook/v/gocd_agent.svg)](https://supermarket.chef.io/cookbooks/gocd_agent)
+# [`gocd_agent`](https://github.com/JamesMGreene/chef-gocd-agent) [![GitHub Latest Release](https://badge.fury.io/gh/JamesMGreene%2Fchef-gocd-agent.png)](https://github.com/JamesMGreene/chef-gocd-agent) [![Build Status](https://secure.travis-ci.org/JamesMGreene/chef-gocd-agent.png?branch=master)](https://travis-ci.org/JamesMGreene/chef-gocd-agent) [![Chef Cookbook](http://img.shields.io/cookbook/v/gocd_agent.svg)](https://supermarket.chef.io/cookbooks/gocd_agent)
 
-Install and configure a ThoughtWorks Go CD (GoCD) Agent/Client.
+A [Chef](https://www.chef.io/chef/) Cookbook to install and configure a [ThoughtWorks Go CD (GoCD)](http://www.go.cd/) Agent/Client.
 
 
 ## Supported Platforms
