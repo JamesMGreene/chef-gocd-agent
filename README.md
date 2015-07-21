@@ -23,7 +23,7 @@ A [Chef](https://www.chef.io/chef/) Cookbook to install and configure a [Thought
 ## Requirements
 
 ### Other Cookbooks
-- `java` - GoCD Agents require that OpenJDK/Java 7 is installed.
+- [`java`](https://supermarket.chef.io/cookbooks/java) - GoCD Agents require that OpenJDK/Java 7 is installed.
 
 
 ### `package`s

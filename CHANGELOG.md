@@ -3,6 +3,9 @@
 This file is used to list changes made in each version of the `gocd_agent` cookbook.
 
 
+## `1.0.3`
+- Added a link to the `java` cookbook dependency
+
 ## `1.0.2`
 - Initial release of the `gocd_agent` cookbook!
 
