@@ -54,7 +54,7 @@ files_to_copy.each do |dest, src|
   remote_file dest do
     owner  node['gocd_agent']['user']
     group  node['gocd_agent']['group']
-    source "file://#{node['gocd_agent']['installation_source']}/#{src}"
+    source lazy { "file://#{node['gocd_agent']['installation_source']}/#{src}" }
     mode   '0751'
     only_if {
       File.dir?(node['gocd_agent']['installation_source']) &&

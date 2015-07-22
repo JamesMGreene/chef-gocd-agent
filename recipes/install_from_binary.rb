@@ -25,16 +25,13 @@ include_recipe 'gocd_agent::_install_prereqs'
 include_recipe 'gocd_agent::_download_materials'
 
 
-installer_dir  = File.dirname(node['gocd_agent']['installation_source'])
-installer_file = File.basename(node['gocd_agent']['installation_source'])
-
 # Install it as a binary!
 case node['platform_family']
 when 'mac_os_x'
   # app
   execute 'Copy the ".app" file (directory) into the "/Applications" directory' do
-    cwd     installer_dir
-    command "mv '#{installer_file}' /Applications"
+    cwd     lazy { File.dirname(node['gocd_agent']['installation_source']) }
+    command lazy { "mv '#{File.basename(node['gocd_agent']['installation_source'])}' /Applications" }
     only_if {
       File.dir?('/Applications') &&
       File.dir?(node['gocd_agent']['installation_source']) &&
@@ -45,8 +42,8 @@ when 'mac_os_x'
 when 'windows'
   # exe
   execute 'Install the Go Agent silently on Windows' do
-    cwd     installer_dir
-    command "#{installer_file} /S"
+    cwd     lazy { File.dirname(node['gocd_agent']['installation_source']) }
+    command lazy { "#{File.basename(node['gocd_agent']['installation_source'])} /S" }
   end
 
 end

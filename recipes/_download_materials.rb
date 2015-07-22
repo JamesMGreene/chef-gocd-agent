@@ -53,14 +53,6 @@ end
 
 ruby_block 'Set the installation_source' do
   block do
-    Chef::Log.info("[BEFORE] Chef `node['gocd_agent']['installation_source']`:  #{node['gocd_agent']['installation_source'].to_json}")
-    Chef::Log.info("`node['gocd_agent']['decompress']`:  #{node['gocd_agent']['decompress'].to_json}")
-    Chef::Log.info("`node['gocd_agent']['release']`:  #{node['gocd_agent']['release'].to_json}")
-    Chef::Log.info("`local_download_archive`:  #{local_download_archive.to_json}")
-    Chef::Log.info("`local_extract_dir`:  #{local_extract_dir.to_json}")
-    Chef::Log.info("`local_archive_name`:  #{local_archive_name.to_json}")
-    Chef::Log.info("`local_extracted_file`:  #{local_extracted_file.to_json}")
-
     # Set the final installation source location
     if !node['gocd_agent']['decompress'].nil? && !node['gocd_agent']['decompress'].empty?
       if local_download_archive.end_with?('-osx.zip')
@@ -73,7 +65,5 @@ ruby_block 'Set the installation_source' do
     else
       node.normal['gocd_agent']['installation_source'] = local_download_archive
     end
-
-    Chef::Log.info("[AFTER]  Chef `node['gocd_agent']['installation_source']`:  #{node['gocd_agent']['installation_source'].to_json}")
   end
 end
