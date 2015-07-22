@@ -44,13 +44,6 @@ else
 end
 
 
-# Configure the download
-default['gocd_agent']['download_host'] = 'http://dl.bintray.com'
-default['gocd_agent']['download_file_basename'] = "#{node['gocd_agent']['name']}-#{node['gocd_agent']['version']}-#{node['gocd_agent']['release']}"
-default['gocd_agent']['download_file'] = "#{node['gocd_agent']['download_file_basename']}#{node['gocd_agent']['download_file_extension']}"
-default['gocd_agent']['download_url']  = "#{node['gocd_agent']['download_host']}#{node['gocd_agent']['download_dir']}/#{node['gocd_agent']['download_file']}"
-
-
 
 case node['platform_family']
 when 'rhel', 'fedora'
@@ -133,6 +126,12 @@ else
   raise "Unexpected value for `node['gocd_agent']['install_method']`: #{node['gocd_agent']['install_method']}"
 end
 
+
+# Configure the download
+default['gocd_agent']['download_host'] = 'http://dl.bintray.com'
+default['gocd_agent']['download_file_basename'] = "#{node['gocd_agent']['name']}-#{node['gocd_agent']['version']}-#{node['gocd_agent']['release']}"
+default['gocd_agent']['download_file'] = "#{node['gocd_agent']['download_file_basename']}#{node['gocd_agent']['download_file_extension']}"
+default['gocd_agent']['download_url']  = "#{node['gocd_agent']['download_host']}#{node['gocd_agent']['download_dir']}/#{node['gocd_agent']['download_file']}"
 
 
 # Import custom attribute overrides
