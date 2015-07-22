@@ -14,13 +14,24 @@ end
 
 service 'go-agent' do
   service_name node['gocd_agent']['service']
-  action [ :enable, :start ]
+  action       [ :enable, :start ]
+  supports     :status => true, :restart => true, :reload => false
 
-  if !(node['gocd_agent']['install_method'] == 'source' && node['platform_family'] == 'windows')
-    supports :status => true, :restart => true, :reload => false
-  else
-    supports      :status => false, :restart => false, :reload => false
-    start_command "pushd '#{agent_root_dir_shell}'; start-agent.bat; popd"
-    stop_command  "pushd '#{agent_root_dir_shell}'; stop-agent.bat; popd"
-  end
+  not_if {
+    node['gocd_agent']['install_method'] == 'source' &&
+    node['platform_family'] == 'windows'
+  }
+end
+
+service 'go-agent' do
+  service_name  node['gocd_agent']['service']
+  action        [ :enable, :start ]
+  supports      :status => false, :restart => false, :reload => false
+  start_command "pushd '#{agent_root_dir_shell}'; start-agent.bat; popd"
+  stop_command  "pushd '#{agent_root_dir_shell}'; stop-agent.bat; popd"
+
+  only_if {
+    node['gocd_agent']['install_method'] == 'source' &&
+    node['platform_family'] == 'windows'
+  }
 end

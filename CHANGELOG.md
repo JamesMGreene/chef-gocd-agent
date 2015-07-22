@@ -3,6 +3,10 @@
 This file is used to list changes made in each version of the `gocd_agent` cookbook.
 
 
+## `1.0.10`
+- Fixed another attribute reference issue during Chef Compile phase vs. Converge phase, this time in
+  the `service` resource.
+
 ## `1.0.9`
 - Removed unnecessary `version` attribute from `package` installer resource.
 
