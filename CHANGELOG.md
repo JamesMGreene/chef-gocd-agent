@@ -3,6 +3,9 @@
 This file is used to list changes made in each version of the `gocd_agent` cookbook.
 
 
+## `1.0.5`
+- Added some debugging code into a private recipe for analysis.
+
 ## `1.0.4`
 - Shuffled some attribute definitions around to get the correct values propagated.
 
