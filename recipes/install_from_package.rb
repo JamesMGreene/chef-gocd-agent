@@ -27,8 +27,7 @@ include_recipe 'gocd_agent::_download_materials'
 
 # Install it as a package
 package node['gocd_agent']['name'] do
-  version "#{node['gocd_agent']['version']}-#{node['gocd_agent']['release']}"
-  source  lazy { node['gocd_agent']['installation_source'] }
+  source lazy { node['gocd_agent']['installation_source'] }
 end
 
 

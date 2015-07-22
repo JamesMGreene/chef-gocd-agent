@@ -3,6 +3,9 @@
 This file is used to list changes made in each version of the `gocd_agent` cookbook.
 
 
+## `1.0.9`
+- Removed unnecessary `version` attribute from `package` installer resource.
+
 ## `1.0.8`
 - Fixed issue with `node['gocd_agent']['installation_source']` being empty for installers due to
   their attributes being evaluated during the Chef Compile phase instead of the Converge phase by
