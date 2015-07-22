@@ -25,7 +25,7 @@ include_recipe 'gocd_agent::_install_prereqs'
 include_recipe 'gocd_agent::_download_materials'
 
 
-ruby_block do
+ruby_block 'Package installation debugging' do
   block do
     Chef::Log.info("[BEFORE_INSTALL] Chef `node['gocd_agent']['name']`:  #{node['gocd_agent']['name'].to_json}")
     Chef::Log.info("[BEFORE_INSTALL] full version: #{node['gocd_agent']['version']}-#{node['gocd_agent']['release']}")
