@@ -3,6 +3,9 @@
 This file is used to list changes made in each version of the `gocd_agent` cookbook.
 
 
+## `1.0.6`
+- MOAR DEBUGGING!
+
 ## `1.0.5`
 - Added some debugging code into a private recipe for analysis.
 

@@ -22,11 +22,8 @@ directory local_extract_dir
 # Download the required package/binary/source file
 remote_file local_download_archive do
   source node['gocd_agent']['download_url']
-  backup false
-  owner  'root'
-  group  'root'
   mode   '0644'
-  not_if { ::File.exists?(local_download_archive) }
+  action :create_if_missing
 end
 
 
