@@ -6,10 +6,13 @@
 
 GO_SERVER=<%= node['gocd_agent']['gocd_server']['host'] || '127.0.0.1' %>
 GO_SERVER_PORT=<%= (node['gocd_agent']['gocd_server']['port'] || 8153).to_s %>
-AGENT_WORK_DIR=/var/lib/${SERVICE_NAME:-go-agent}
-DAEMON=Y
-VNC=N
+AGENT_WORK_DIR=<%= node['gocd_agent']['work_dir'] || '/var/lib/${SERVICE_NAME:-go-agent}' %>
+JAVA_HOME=<%= node['gocd_agent']['java_home'] || '${JAVA_HOME}' %>
 
 export GO_SERVER
 export GO_SERVER_PORT
 export AGENT_WORK_DIR
+export JAVA_HOME
+
+DAEMON=Y
+VNC=N
