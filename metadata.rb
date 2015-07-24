@@ -1,5 +1,5 @@
 name             'gocd_agent'
-version          '1.0.11'
+version          '1.0.12'
 
 license          'MIT'
 maintainer       'James M. Greene'

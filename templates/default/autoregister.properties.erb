@@ -5,11 +5,11 @@
 
 <% auto_reg = node['gocd_agent']['auto_register'] %>
 
-agent.auto.register.key          = <%= auto_reg[:key] %>
+agent.auto.register.key=<%= auto_reg[:key] %>
 
-agent.auto.register.resources    = <%= auto_reg[:resources].join(',') %>
+agent.auto.register.resources=<%= auto_reg[:resources].join(',') %>
 
-agent.auto.register.environments = <%= auto_reg[:environments].join(',') %>
+agent.auto.register.environments=<%= auto_reg[:environments].join(',') %>
 
 # Requires GoCD 15.2.0 or higher
-agent.auto.register.hostname     = <%= auto_reg[:hostname] || node['hostname'] %>
+agent.auto.register.hostname=<%= auto_reg[:hostname] || node['hostname'] %>

@@ -3,6 +3,9 @@
 This file is used to list changes made in each version of the `gocd_agent` cookbook.
 
 
+## `1.0.12`
+- Modified template for 'autoregister.properties' file to remove excess whitespace.
+
 ## `1.0.11`
 - Adding attribute nodes for setting `work_dir` and `java_home` on Linux.
 
