@@ -36,6 +36,9 @@ default['gocd_agent']['auto_register']['hostname']     = node['hostname']
 default['gocd_agent']['user']  = 'go'
 default['gocd_agent']['group'] = 'go'
 
+# Install prereqs?
+default['gocd_agent']['install_prereqs'] = true
+
 
 # Configure the service name
 case node['platform_family']

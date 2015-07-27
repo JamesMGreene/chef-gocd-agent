@@ -3,6 +3,9 @@
 This file is used to list changes made in each version of the `gocd_agent` cookbook.
 
 
+## `1.1.0`
+- Added new attribute to allow prereqs to **NOT** be forcibly installed.
+
 ## `1.0.12`
 - Modified template for 'autoregister.properties' file to remove excess whitespace.
 
