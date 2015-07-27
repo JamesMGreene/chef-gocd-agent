@@ -3,6 +3,9 @@
 This file is used to list changes made in each version of the `gocd_agent` cookbook.
 
 
+## `1.1.1`
+- Added default value searches for `node['gocd_agent']['java_home']`.
+
 ## `1.1.0`
 - Added new attribute to allow prereqs to **NOT** be forcibly installed.
 

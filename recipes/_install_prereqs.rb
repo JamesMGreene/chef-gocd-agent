@@ -12,14 +12,10 @@ if node['gocd_agent']['install_prereqs'] == true
   node.force_override['java']['accept_license_agreement'] = true  # ~FC019 (https://github.com/acrmp/foodcritic/pull/312)
   include_recipe 'java'
 
-  ruby_block 'Get JAVA_HOME path from `java` cookbook' do
+  ruby_block 'Get JAVA_HOME path' do
     block do
-      node.normal['gocd_agent']['java_home'] = node['java']['java_home'] || ENV['JAVA_HOME'] || nil
+      node.normal['gocd_agent']['java_home'] = node['java']['java_home'] || nil
     end
   end
-
-else
-
-  node.normal['gocd_agent']['java_home'] = ENV['JAVA_HOME'] || nil
 
 end
