@@ -3,6 +3,9 @@
 This file is used to list changes made in each version of the `gocd_agent` cookbook.
 
 
+## `1.1.3`
+- Added better internal testing for Travis CI with `knife cookbook test`
+
 ## `1.1.2`
 - Switched from using backtick-escaped line scripts to `Mixlib::ShellOut`
 
