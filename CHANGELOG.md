@@ -3,6 +3,9 @@
 This file is used to list changes made in each version of the `gocd_agent` cookbook.
 
 
+## `1.1.2`
+- Switched from using backtick-escaped line scripts to `Mixlib::ShellOut`
+
 ## `1.1.1`
 - Added default value searches for `node['gocd_agent']['java_home']`.
 

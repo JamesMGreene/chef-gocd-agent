@@ -23,7 +23,17 @@ default['gocd_agent']['gocd_server']['port'] = 8153
 
 # Configure local agent settings; ideally, you should leave these both unset
 default['gocd_agent']['work_dir'] = nil
-default['gocd_agent']['java_home'] = ENV['JAVA_HOME'] || `echo "${JAVA_HOME}"` || nil
+if !(ENV['JAVA_HOME'].nil? || ENV['JAVA_HOME'].empty?)
+  default['gocd_agent']['java_home'] = ENV['JAVA_HOME']
+else
+  cmd = Mixlib::ShellOut.new('echo "${JAVA_HOME}"', :user => 'root', :login => true)
+  cmd.run_command
+  if !(cmd.error? || cmd.stdout.nil? || cmd.stdout.empty? || cmd.stdout.trim.empty?)
+    default['gocd_agent']['java_home'] = cmd.stdout.trim
+  else
+    default['gocd_agent']['java_home'] = nil
+  end
+end
 
 # Auto-register new GoCD Agents with the GoCD Server?
 default['gocd_agent']['auto_register']['key']          = nil
