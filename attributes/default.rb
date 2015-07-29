@@ -28,8 +28,8 @@ if !(ENV['JAVA_HOME'].nil? || ENV['JAVA_HOME'].empty?)
 else
   cmd = Mixlib::ShellOut.new('echo "${JAVA_HOME}"', :user => 'root')
   cmd.run_command
-  if !(cmd.error? || cmd.stdout.nil? || cmd.stdout.empty? || cmd.stdout.trim.empty?)
-    default['gocd_agent']['java_home'] = cmd.stdout.trim
+  if !(cmd.error? || cmd.stdout.nil? || cmd.stdout.strip.empty?)
+    default['gocd_agent']['java_home'] = cmd.stdout.strip
   else
     default['gocd_agent']['java_home'] = nil
   end

@@ -3,6 +3,9 @@
 This file is used to list changes made in each version of the `gocd_agent` cookbook.
 
 
+## `1.1.5`
+- Fixed some instances of using non-existent String method 'trim' instead of 'strip'.
+
 ## `1.1.4`
 - Drop the newer `:login` attribute from use of `Mixlib::ShellOut`... too modern for OpsWorks's Chef 11.10's "mixlib-shellout-1.3"!
 
