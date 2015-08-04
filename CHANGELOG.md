@@ -3,6 +3,9 @@
 This file is used to list changes made in each version of the `gocd_agent` cookbook.
 
 
+## `1.1.6`
+- Added support for prepending to the `PATH` environment variable via new attribute `node['gocd_agent']['path']`.
+
 ## `1.1.5`
 - Fixed some instances of using non-existent String method 'trim' instead of 'strip'.
 

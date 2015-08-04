@@ -14,5 +14,10 @@ export GO_SERVER_PORT
 export AGENT_WORK_DIR
 export JAVA_HOME
 
+<% if !(node['gocd_agent']['path'].nil? || node['gocd_agent']['path'].strip.empty?) %>
+PATH="<%= node['gocd_agent']['path'].strip %>:${PATH}"
+export PATH
+<% end %>
+
 DAEMON=Y
 VNC=N

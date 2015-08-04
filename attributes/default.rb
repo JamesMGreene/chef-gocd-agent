@@ -21,8 +21,9 @@ default['gocd_agent']['release'] = '2248'
 default['gocd_agent']['gocd_server']['host'] = '127.0.0.1'
 default['gocd_agent']['gocd_server']['port'] = 8153
 
-# Configure local agent settings; ideally, you should leave these both unset
+# Configure local agent settings; ideally, you should leave these unset/default
 default['gocd_agent']['work_dir'] = nil
+default['gocd_agent']['path'] = ENV['PATH']
 if !(ENV['JAVA_HOME'].nil? || ENV['JAVA_HOME'].empty?)
   default['gocd_agent']['java_home'] = ENV['JAVA_HOME']
 else
@@ -34,6 +35,8 @@ else
     default['gocd_agent']['java_home'] = nil
   end
 end
+
+
 
 # Auto-register new GoCD Agents with the GoCD Server?
 default['gocd_agent']['auto_register']['key']          = nil

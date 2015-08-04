@@ -97,6 +97,29 @@ dirs_to_create.each do |dir|
   end
 end
 
+
+# Grab the real user PATH value
+path_tempfile='/tmp/go.PATH.txt'
+
+bash 'Save PATH to tempfile' do
+  user node['gocd_agent']['user']
+  code <<-EOH
+    echo "${PATH}">#{path_tempfile}
+    chmod 666 #{path_tempfile}
+  EOH
+end
+
+ruby_block 'Retrieve PATH from tempfile' do
+  block do
+    node.normal['gocd_agent']['path'] = IO.read(path_tempfile).strip
+    File.delete(path_tempfile)
+  end
+  only_if {
+    File.file?(path_tempfile)
+  }
+end
+
+
 # Generate the config file before starting the service. On some platforms,
 # this avoids the first-time UI prompt asking for the Go Server hostname/IP.
 template default_config_file do

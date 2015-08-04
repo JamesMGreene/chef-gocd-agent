@@ -121,12 +121,14 @@ include_recipe 'gocd_agent::install_from_source'
 
 ## Contributing
 
-1. Fork the repository on GitHub
-2. Create a named feature branch (like `add_component_x`)
-3. Write your change
-4. Write tests for your change (if applicable)
-5. Run the tests, ensuring they all pass (if applicable)
-6. Submit a Pull Request using GitHub
+1. Fork it
+2. Create your feature branch (`git checkout -b my-new-feature`)
+3. Commit your changes (`git commit -am 'Added some feature'`)
+4. Run the unit tests (`bundle exec rake spec`)
+5. Run test kitchen (`bundle exec kitchen test`)
+6. Push to the branch (`git push origin my-new-feature`)
+7. Create new Pull Request
+
 
 
 ## License
