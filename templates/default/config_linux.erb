@@ -7,12 +7,25 @@
 GO_SERVER=<%= node['gocd_agent']['gocd_server']['host'] || '127.0.0.1' %>
 GO_SERVER_PORT=<%= (node['gocd_agent']['gocd_server']['port'] || 8153).to_s %>
 AGENT_WORK_DIR=<%= node['gocd_agent']['work_dir'] || '/var/lib/${SERVICE_NAME:-go-agent}' %>
-JAVA_HOME=<%= node['gocd_agent']['java_home'] || node['java']['java_home'] || '/usr/lib/jvm/jre' %>
+JAVA_HOME=<%=
+  !(node['gocd_agent']['java_home'].nil? || node['gocd_agent']['java_home'].empty?) ?
+    node['gocd_agent']['java_home'] :
+    !(node['java']['java_home'].nil? || node['java']['java_home'].empty?) ?
+      node['java']['java_home'] :
+      '/usr/lib/jvm/java'
+%>
 
 export GO_SERVER
 export GO_SERVER_PORT
 export AGENT_WORK_DIR
 export JAVA_HOME
+
+HOME=<%=
+  !(node['gocd_agent']['home'].nil? || node['gocd_agent']['home'].empty?) ?
+    node['gocd_agent']['home'] :
+    '/var/go'
+%>
+export HOME
 
 <% if !(node['gocd_agent']['path'].nil? || node['gocd_agent']['path'].strip.empty?) %>
 PATH="<%= node['gocd_agent']['path'].strip %>:${PATH}"

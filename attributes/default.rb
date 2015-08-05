@@ -23,6 +23,7 @@ default['gocd_agent']['gocd_server']['port'] = 8153
 
 # Configure local agent settings; ideally, you should leave these unset/default
 default['gocd_agent']['work_dir'] = nil
+default['gocd_agent']['home'] = '/var/go'
 default['gocd_agent']['path'] = ENV['PATH']
 if !(ENV['JAVA_HOME'].nil? || ENV['JAVA_HOME'].empty?)
   default['gocd_agent']['java_home'] = ENV['JAVA_HOME']
@@ -31,8 +32,6 @@ else
   cmd.run_command
   if !(cmd.error? || cmd.stdout.nil? || cmd.stdout.strip.empty?)
     default['gocd_agent']['java_home'] = cmd.stdout.strip
-  else
-    default['gocd_agent']['java_home'] = nil
   end
 end
 

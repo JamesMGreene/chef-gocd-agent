@@ -3,6 +3,9 @@
 This file is used to list changes made in each version of the `gocd_agent` cookbook.
 
 
+## `1.1.7`
+- Added support for setting the `HOME` environment variable on Linux via new attribute `node['gocd_agent']['home']`.
+
 ## `1.1.6`
 - Added support for prepending to the `PATH` environment variable via new attribute `node['gocd_agent']['path']`.
 
