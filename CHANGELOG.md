@@ -3,6 +3,9 @@
 This file is used to list changes made in each version of the `gocd_agent` cookbook.
 
 
+## `1.1.9`
+- Now setting the `USER` environment variable on Linux.
+
 ## `1.1.8`
 - Adjusted the `service` resource usage to stop the service before installing so that it is effectively restarted if the service was indeed already installed.
 

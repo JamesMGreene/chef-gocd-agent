@@ -4,6 +4,10 @@
 #
 
 
+#####
+# Normal core GoCD environment variables
+#####
+
 GO_SERVER=<%= node['gocd_agent']['gocd_server']['host'] || '127.0.0.1' %>
 GO_SERVER_PORT=<%= (node['gocd_agent']['gocd_server']['port'] || 8153).to_s %>
 AGENT_WORK_DIR=<%= node['gocd_agent']['work_dir'] || '/var/lib/${SERVICE_NAME:-go-agent}' %>
@@ -20,6 +24,19 @@ export GO_SERVER_PORT
 export AGENT_WORK_DIR
 export JAVA_HOME
 
+DAEMON=Y
+VNC=N
+
+
+
+#####
+# Extra non-core GoCD environment variables
+#####
+
+USER=<%= node['gocd_agent']['user'] %>
+export USER
+
+
 HOME=<%=
   !(node['gocd_agent']['home'].nil? || node['gocd_agent']['home'].empty?) ?
     node['gocd_agent']['home'] :
@@ -27,10 +44,8 @@ HOME=<%=
 %>
 export HOME
 
+
 <% if !(node['gocd_agent']['path'].nil? || node['gocd_agent']['path'].strip.empty?) %>
 PATH="<%= node['gocd_agent']['path'].strip %>:${PATH}"
 export PATH
 <% end %>
-
-DAEMON=Y
-VNC=N
