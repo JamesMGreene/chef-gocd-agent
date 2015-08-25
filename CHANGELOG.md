@@ -3,6 +3,9 @@
 This file is used to list changes made in each version of the `gocd_agent` cookbook.
 
 
+## `1.1.10`
+- Relaxed version constraint for the `java` dependency cookbook.
+
 ## `1.1.9`
 - Now setting the `USER` environment variable on Linux.
 
