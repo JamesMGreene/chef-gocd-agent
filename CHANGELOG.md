@@ -3,6 +3,9 @@
 This file is used to list changes made in each version of the `gocd_agent` cookbook.
 
 
+## `1.1.11`
+- Dropped the `:user` attribute from the `Mixlib::ShellOut` command when running on Windows.
+
 ## `1.1.10`
 - Relaxed version constraint for the `java` dependency cookbook.
 

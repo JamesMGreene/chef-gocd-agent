@@ -28,7 +28,12 @@ default['gocd_agent']['path'] = ENV['PATH']
 if !(ENV['JAVA_HOME'].nil? || ENV['JAVA_HOME'].empty?)
   default['gocd_agent']['java_home'] = ENV['JAVA_HOME']
 else
-  cmd = Mixlib::ShellOut.new('echo "${JAVA_HOME}"', :user => 'root')
+  case node['platform_family']
+  when 'windows'
+    cmd = Mixlib::ShellOut.new('echo "${JAVA_HOME}"')
+  else
+    cmd = Mixlib::ShellOut.new('echo "${JAVA_HOME}"', :user => 'root')
+  end
   cmd.run_command
   if !(cmd.error? || cmd.stdout.nil? || cmd.stdout.strip.empty?)
     default['gocd_agent']['java_home'] = cmd.stdout.strip
