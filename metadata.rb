@@ -11,7 +11,7 @@ issues_url       'https://github.com/JamesMGreene/chef-gocd-agent/issues' if res
 
 
 # GoCD depends on the OpenJDK 7 (1.7.x) JRE
-depends 'java', '~> 1.31.0'
+depends 'java', '~> 1.31'
 
 
 
